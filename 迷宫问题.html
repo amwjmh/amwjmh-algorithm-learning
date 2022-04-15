@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3{
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //  new [8][7]二维数组
+        let mums = new Array(8);
+        for (let i = 0; i < mums.length; i++) {
+            const num = new Array(7).fill(0);
+            mums[i] = num;
+        }
+        for(let i = 0; i< 7; i++){
+            mums[0][i] = 1;
+            mums[7][i] = 1;
+        };
+        for(let i = 0; i< 8; i++){
+            mums[i][0] = 1;
+            mums[i][6] = 1;
+        }
+        mums[3][1] = 1;
+        mums[3][2] = 1;
+        mums[4][3] = 1;
+        mums[2][2] = 1;
+
+        document.write('<h1> 迷宫 </h3>')
+        for(let i = 0; i< mums.length; i++){
+            const mu = mums[i];
+            for(let j = 0; j< mu.length; j++){
+                document.write('<h3> &nbsp&nbsp&nbsp' + mu[j] +'</h3>')
+            }
+            document.write('</br>')
+        }
+
+        function goMap(map, i, j){
+            
+            if(map[6][5] == 2 ){
+                return true
+            }else{
+                if(map[i][j] === 0){
+                    map[i][j] =2;
+                    if(goMap(map, i+1, j)){
+                        return true
+                    }else
+                    if(goMap(map, i, j+1)){
+                        return true
+                    }else
+                    if(goMap(map, i-1, j)){
+                        return true
+                    }else
+                    if(goMap(map, i, j-1)){
+                        return true
+                    }
+                }else{
+                    return false
+                }
+            }
+        }
+
+        goMap(mums, 2, 1);
+
+
+        document.write('<h1> 迷宫路线 </h3>')
+        for(let i = 0; i< mums.length; i++){
+            const mu = mums[i];
+            for(let j = 0; j< mu.length; j++){
+                document.write('<h3> &nbsp&nbsp&nbsp' + mu[j] +'</h3>')
+            }
+            document.write('</br>')
+        }
+
+    </script>
+</body>
+
+</html>
