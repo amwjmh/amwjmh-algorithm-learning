@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> 在 8× 8 格的国际象棋上摆放八个皇后， 使其不能互相攻击， 即： 任意两个皇后都不能处于同一行、同一列或同一斜线上， 问有多少种摆法(92)。</p>
+    <script>
+        
+        function Queue8() {
+            let max = 8;
+            let arr = new Array(max);
+            this.check = function(n) {
+                if (n == max) {
+                    document.write('<h3>' + arr + '</h3>')
+                    return
+                }
+                for (let i = 0; i < max; i++) {
+                    arr[n] = i;
+                    if (judge(n)) {
+                        this.check(n + 1)
+                    }
+                }
+            };
+            // 判断是否冲突
+            function judge(n) {
+                for (let i = 0; i < n; i++) {
+                    if (arr[i] == arr[n] || Math.abs(n - i) == Math.abs(arr[i] - arr[n])) {
+                        return false
+                    }
+                }
+                return true
+            }
+        }
+
+        let qu  = new Queue8();
+        console.log(qu);
+        
+        qu.check(0);
+
+
+    </script>
+</body>
+
+</html>
