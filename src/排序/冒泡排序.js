@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <script>
         let arr = [3, 20, -1, 10, 9];
         // let arr = new Array(1000);
         // for(let i = 0; i< arr.length; i++){
@@ -19,6 +8,7 @@
         let flog = false;
         document.write('<h3>排序前'+ arr +'</h3>');
         console.time('运行时间')
+        
         for (let j = 0; j < arr.length - 1; j++) {
             for (let i = 0; i < arr.length - 1 - j; i++) {
                 if (arr[i] > arr[i + 1]) {
@@ -38,7 +28,3 @@
         }
         console.timeEnd('运行时间')
         document.write('<h3>排序后'+ arr +'</h3>');
-    </script>
-</body>
-
-</html>
