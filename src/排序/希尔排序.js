@@ -74,7 +74,7 @@ function shellSort(arr){
     return arr
 }
 
-
+c
 console.log(arr);
 let arrA = shellSort(arr)
 console.log(arrA);
